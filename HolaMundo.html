@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Mi primer JS</title>
+    </head>
+    <body>
+        <p> Cordial saludo, este es mi commit de la creación de la rama. Soy Cristian Zambrano</p>
+        <br>
+        <form id="formulario">
+            Escribe tu nombre aqui: <input type="text" id="nombre"><br><br>
+            <input type="button" value="Saludar" onclick="miFuncion()">
+        </form>
+
+        <script>
+            function miFuncion(){
+                var name=document.getElementById("nombre").value;
+                alert("Hola "+name+", !Bienvenid@ al mundo de la programación!")
+            }
+        </script>
+    </body>
+</html>
