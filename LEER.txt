@@ -1,0 +1,34 @@
+En comparación al esquema de la profesora no hay muchos cambios, pero los pocos
+que hay los voy a enumerar:
+
+1. El archivo encargado de manejar las rutas no se llama "products", si no "rutas"
+en la carpeta "routes"
+
+2.Se creo solamente como base el metodo para crear un nuevo producto con la estructura:
+
+{
+    "nombre": "Nutra gold Gatos 1,5kg",
+    "precio": "69000",
+    "descripcion": "Pienso para gatos adultos, super premium. Alimento balanceado para control de dieta. Alimento holistico",
+    "calificacion": 4.9,
+    "imagen": [
+        {
+            "public_id": "productos/dsvbpny402gelwugv2le",
+            "url": "https://www.agrocampo.com.co/media/catalog/product/cache/d51e0dc10c379a6229d70d752fc46d83/1/1/111110880_ed-min.jpg"
+        }
+    ],
+    "categoria": "Alimento seco",
+    "vendedor": "Natali Velasquez",
+    "inventario": 50,
+    "numCalificaciones": 32,
+    "opiniones": []
+}
+
+3. Para acceder a algun metodo desde el postman se añade el api antes de enviarlo, igual quedó comentado donde
+estan las rutas, metodo GET de ejemplo:
+
+localhost:4000/api/saludo
+
+
+4. Para tener en cuenta, en models se dejó la estructura con la que venia trabajando la profesora
+pero mas adelante habrá que cambiarla y borrar el metodo crearProducto o modificarlo.
