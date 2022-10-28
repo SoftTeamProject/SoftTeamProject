@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Rou
 import { AdminListProduct } from './components/adminAll/AdminListProduct'
 import { AdminListaVentas } from './components/adminAll/AdminListaVentas';
 import { AdminModProduct } from './components/adminAll/AdminModProduct';
+import {ClienteListProduct} from './components/clienteAll/ClienteListProduct';
+import ShoppingCart from './components/clienteAll/ShoppingCart';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/Admin/ListaProductos" element={<AdminListProduct/>}/>
         <Route path="/Admin/ListaVentas" element={<AdminListaVentas/>}/>
         <Route path="/Admin/ModProduct" element={<AdminModProduct/>}/>
+        <Route path="/Cliente/ListaProductos" element={<ShoppingCart/>}/>
       </Routes>
       </div>
       <Footer/>

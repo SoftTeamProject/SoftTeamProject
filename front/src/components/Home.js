@@ -91,7 +91,10 @@ export const Home = () => {
 
                         <div class="col-lg-2 sidenav">
                             <div class="well">
-                                <p></p>
+                            <p><a href="http://localhost:3000/">Administrador</a></p>
+                            </div>
+                            <div class="well">
+                            <p><a href="http://localhost:3000/Cliente/ListaProductos">Cliente</a></p>    
                             </div>
                             <div >
                                 <p></p>

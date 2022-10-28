@@ -85,6 +85,14 @@ return (
 
                         <div class="col-lg-2 sidenav">
                             <div class="well">
+                            <div>
+                                <a href='http://localhost:3000/'>
+                                <li>
+                                <i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="true"></i>
+                                <span className="ml-1" id="cart_count" >5</span>
+                                </li>
+                                Cliente</a>
+                                </div>
                                 <p></p>
                             </div>
                             <div >
