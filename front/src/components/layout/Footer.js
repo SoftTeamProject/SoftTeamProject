@@ -4,6 +4,7 @@ export const Footer = () => {
 
   return (
     <Fragment>
+       
         <footer className="pie-pagina">
             <div class="grupo-1">
                 <div class="box">

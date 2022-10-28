@@ -1,68 +1,58 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import MetaData from './layout/MetaData'
+import {useDispatch, useSelector} from 'react-redux'
+import { getProducts } from '../actions/productActions'
+import { Link } from 'react-router-dom'
 
 export const Home = () => {
-  return (
-    <Fragment>
-        <h1 id="encabezado_producto">Productos nuevos</h1>
+    const { loading, productos, error} = useSelector(state=> state.products)
 
-        <section id="productos" className='container mt-5'>
-            <div className='row'>
-                {/*Producto 1*/ }
-                <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                    <img className='card-img-top mx-auto' src='./images/nintendo.jpg' alt="Nintendo jpg"></img>
-                    <div className='card-body d-flex flex-colum'>
-                        <h5 id="titulo_producto" ><a href='http://localhost:3000'>Nintendo consola</a></h5>
-                        <div className='rating mt-auto'>
-                            <div className='rating-outer'></div>
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (error){
+            return alert.error(error)
+        }
+        
+        dispatch(getProducts());
+        //alert.success("OK")
+    }, [dispatch])
+
+    return (
+        <Fragment>
+            {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
+                <Fragment>
+                    <MetaData title="Líderes en tecnología"></MetaData>
+            <h1 id="encabezado_productos">Ultimos Productos</h1>
+
+            <section id="productos" className='container mt-5'>
+                <div className='row'>
+                {productos && productos.map (producto => (
+                    <div key={producto._id} className='col-sm-12 col-md-6 col-lg-3 my-3'>
+                    <div className='card p-3 rounded'>
+                        <img className='card-img-top mx-auto' src={producto.imagen[0].url} alt={producto.imagen[0].public_id}></img>
+                        <div className='card-body d-flex flex-column'>
+                            <h5 id="titulo_producto"><Link to={`/producto/${producto._id}`}>{producto.nombre}</Link></h5>
+                            <div className='rating mt-auto'>
+                                <div className='rating-outer'>
+                                    <div className='rating-inner' style={{width: `${(producto.calificacion/5)*100}%`}}></div>
+                                </div>
+                                <span id="No_de_opiniones"> {producto.numCalificaciones} Reviews</span>
+                            </div>
+                            <p className='card-text'>${producto.precio}</p><Link to={`/producto/${producto._id}`} id="view_btn" className='btn btn-block'>
+                                Ver detalle
+                            </Link>
                         </div>
-                        <span id="No_de_opiniones"> 15 reviews</span>
                     </div>
-                    <p className='card-text'>$999.990</p><a href='http://localhost:3000' id="view_btn" className='btn btn_block'>Ver detalles del producto</a>
                 </div>
+                ))}
 
-                {/*Producto 2*/ }
-                <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                    <img className='card-img-top mx-auto' src='./images/play5.jpg' alt="play jpg"></img>
-                    <div className='card-body d-flex flex-colum'>
-                        <h5 id="titulo_producto" ><a href='http://localhost:3000'>Play 5 consola</a></h5>
-                        <div className='rating mt-auto'>
-                            <div className='rating-outer'></div>
-                        </div>
-                        <span id="No_de_opiniones"> 88 reviews</span>
-                    </div>
-                    <p className='card-text'>$1.599.990</p><a href='http://localhost:3000' id="view_btn" className='btn btn_block'>Ver detalles del producto</a>
                 </div>
-
-                {/*Producto 3*/ }
-                <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                    <img className='card-img-top mx-auto' src='./images/telefono.jpg' alt="telefono jpg"></img>
-                    <div className='card-body d-flex flex-colum'>
-                        <h5 id="titulo_producto" ><a href='http://localhost:3000'>telefono</a></h5>
-                        <div className='rating mt-auto'>
-                            <div className='rating-outer'></div>
-                        </div>
-                        <span id="No_de_opiniones"> 133 reviews</span>
-                    </div>
-                    <p className='card-text'>$800.990</p><a href='http://localhost:3000' id="view_btn" className='btn btn_block'>Ver detalles del producto</a>
-                </div>
-
-                {/*Producto 4*/ }
-                <div className='col-sm-12 col-md-6 col-lg-3 my-3'>
-                    <img className='card-img-top mx-auto' src='./images/tv.jpg' alt="tv jpg"></img>
-                    <div className='card-body d-flex flex-colum'>
-                        <h5 id="titulo_producto" ><a href='http://localhost:3000'>Televisor 55"</a></h5>
-                        <div className='rating mt-auto'>
-                            <div className='rating-outer'></div>
-                        </div>
-                        <span id="No_de_opiniones"> 301 reviews</span>
-                    </div>
-                    <p className='card-text'>$2.800.990</p><a href='http://localhost:3000' id="view_btn" className='btn btn_block'>Ver detalles del producto</a>
-                </div>
-            </div>
-
-        </section>
-    </Fragment>
-  )
+            </section>
+                </Fragment>
+            )} 
+          
+        </Fragment>
+    )
 }
 
 export default Home

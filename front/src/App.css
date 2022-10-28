@@ -48,7 +48,7 @@ nav {
   width: 90%;
   margin-right: 35%;
 }
-
+f
 #search_field {
   height: 2.4rem;
   padding: 1rem;
@@ -622,6 +622,45 @@ ul.CTAs a {
 .review_user {
   font-size: 0.8rem;
   color: grey;
+}
+
+/*:::Header:::*/
+
+
+ul {
+  list-style: none;
+  padding: 0 15px;
+  margin: 0;
+  display: flex;
+}
+
+ul li a {
+  padding: 0 10px;
+
+}
+
+li img {
+  width: 13%;
+}
+
+.menu {
+  float: right;
+  line-height: 30px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: 10px 15px;
+  line-height: normal;
+  font-size: 14px;
+  transition: all 500ms ease;
+  border-bottom: 4px solid transparent;
+}
+
+.menu a:hover {
+  color: #3120c9;
+  border-bottom: 4px solid transparent;
 }
 
 /*:::Pie de Página:::*/
