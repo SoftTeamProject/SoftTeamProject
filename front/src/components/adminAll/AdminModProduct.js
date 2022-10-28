@@ -1,17 +1,11 @@
 import React, { Fragment, useEffect } from 'react'
-import Metadata from './layaout/Metadata'
-import {useDispatch} from 'react-redux'
-import {getProducts} from '../actions/productActions'
 
-export const Home = () => {
-    const dispatch=useDispatch();
-    useEffect(()=>{
-        dispatch(getProducts());
-    },[dispatch])
 
-    return (
-        <Fragment>
-            <Metadata title="Tienda virtual"></Metadata>
+
+export const AdminModProduct = () => {
+return (
+    <Fragment>
+            
             <div class="container">
                 <div class="container-fluid text-center">
                     <div class="row content">
@@ -35,7 +29,7 @@ export const Home = () => {
                                 <h3 >Nintendo Switch</h3>
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <img src="./images/nintendo.jpg" alt="logo" width="200px"></img>
+                                        <img src="../images/nintendo.jpg" alt="logo" width="200px"></img>
                                     </div>
 
                                     <div class="col-lg-4">
@@ -102,7 +96,7 @@ export const Home = () => {
                 </div>
             </div>
         </Fragment>
-    )
+)
 }
 
-export default Home
+export default AdminModProduct
