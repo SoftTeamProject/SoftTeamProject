@@ -26,7 +26,7 @@ export const getProducts = () => async(dispatch)=>{
 }
 
 //clear error
-export const clearErrors=()=>async(dispatch)=>{
+export const clearErrors=() => async(dispatch)=>{
     dispatch({
         type:CLEAR_ERRORS
     })

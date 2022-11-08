@@ -48,12 +48,12 @@ body {
 }
 
 nav {
-  background-color: #232f3e;
+  background-color: #0a0b0c;
   padding: 1rem 1rem;
 }
 
 #search_btn {
-  background-color: #febd69;
+  background-color: #13100d;
 }
 
 .input-group {
@@ -529,7 +529,7 @@ footer {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #232f3e;
+  background: #080a0d;
 }
 #sidebar ul.components {
   padding: 5px 0px;

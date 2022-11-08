@@ -13,7 +13,7 @@ return (
                 <div class="container text-center">
                     <h2>Lista de Ventas</h2>
                     <div class="container">
-                        <p>Aqui podra encontrar la lista de producotos vendidos con su respectiva Fecha, ID Venta y Valor.</p>
+                        <p>Aqui podra encontrar la lista de productos vendidos con su respectiva Fecha, ID Venta y Valor.</p>
                         <table class="table">
                             <thead>
                                 <tr >
