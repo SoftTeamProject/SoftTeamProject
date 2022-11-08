@@ -1,7 +1,9 @@
-
 const producto=require("../models/productos");
 const fetch =(url)=>import('node-fetch').then(({default:fetch})=>fetch(url));
 const { patch } = require("../routes/products");
+//Agregado por Santiago 8/11
+const ErrorHandler = require("../utils/errorHandler");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 //Ver la lista de productos
 exports.getProducts=async(req,res,next) =>{

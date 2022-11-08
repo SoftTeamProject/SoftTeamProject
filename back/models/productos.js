@@ -40,11 +40,13 @@ const productosSchema=mongoose.Schema({
             values:[
                 "Consola video juegos",
                 "Televisores",
+                "Celulares",
                 "Accesorios",
                 "Computadoras",
                 "Electrodomesticos",
                 "Tablets",
-                "Juguetes"
+                "Juguetes",
+                "Realidad Virtual"
             ]
         }
     },
