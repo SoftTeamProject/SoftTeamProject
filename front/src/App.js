@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Rou
 import { AdminListProduct } from './components/adminAll/AdminListProduct'
 import { AdminListaVentas } from './components/adminAll/AdminListaVentas';
 import { AdminModProduct } from './components/adminAll/AdminModProduct';
+import { ProductDetails } from './components/products/ProductDetails';
 import {ClienteListProduct} from './components/clienteAll/ClienteListProduct';
 import ShoppingCart from './components/clienteAll/ShoppingCart';
 
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Home" element={<Home/>}/>
+        <Route path="/producto/:id" element={<ProductDetails/>}/>
         <Route path="/Admin/ListaProductos" element={<AdminListProduct/>}/>
         <Route path="/Admin/ListaVentas" element={<AdminListaVentas/>}/>
         <Route path="/Admin/ModProduct" element={<AdminModProduct/>}/>
