@@ -39,7 +39,7 @@ export const Header = () => {
                         </div>
                     </div>
 
-                    <Link to="/carrito"><i class="fa fa-cart-arrow-down fa-2x text-white" aria-hidden="false"></i>
+                    <Link to="/Cliente/ListaProductos"><i class="fa fa-cart-arrow-down fa-2x text-white" aria-hidden="false"></i>
 
                         <span className="ml-1" id="cart_count">7</span></Link>
                 </div>
