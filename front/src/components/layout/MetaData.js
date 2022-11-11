@@ -4,9 +4,9 @@ import {Helmet} from 'react-helmet'
 const MetaData = ({title}) => {
     return(
         <Helmet>
-            <title>{`${title} - Cronoz Technologies`}</title>
+            <title>{`${title} - Chronoz Technologies`}</title>
         </Helmet>
     )
-
 }
+
 export default MetaData

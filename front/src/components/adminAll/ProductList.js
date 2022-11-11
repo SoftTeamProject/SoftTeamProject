@@ -8,7 +8,7 @@ import "./cssAdmin.css";
 
 export const ProductList = () => {
 
-    const { loading, productos, error } = useSelector(state => state.products)
+    const { loading, productos } = useSelector(state => state.products)
     //const alert = useAlert();
 
     const dispatch = useDispatch();

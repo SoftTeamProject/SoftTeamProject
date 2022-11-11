@@ -1,10 +1,12 @@
-import { ALL_PRODUCTS_REQUEST, 
-    ALL_PRODUCTS_SUCCESS, 
+import {
+    ALL_PRODUCTS_REQUEST,
+    ALL_PRODUCTS_SUCCESS,
     ALL_PRODUCTS_FAIL,
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
-    CLEAR_ERRORS} from "../constants/productConstants";
+    CLEAR_ERRORS
+} from "../constants/productConstants";
 
 export const productsReducer = (state ={ products: []}, action)=>{
     switch(action.type){
@@ -39,7 +41,7 @@ export const productsReducer = (state ={ products: []}, action)=>{
     }
 }
 
-//REDUCER PARA TENER TODOS LOS DETALLES DEL PRODUCTO
+//REDUCER PARA TENER TODOS LOS DETALLES
 export const productDetailsReducer = (state = { product: {} }, action) => {
     switch (action.type) {
 
@@ -52,7 +54,7 @@ export const productDetailsReducer = (state = { product: {} }, action) => {
         case PRODUCT_DETAILS_SUCCESS:
             return {
                 loading: false,
-                product: action.payload.product
+                product: action.payload
             }
 
         case PRODUCT_DETAILS_FAIL:

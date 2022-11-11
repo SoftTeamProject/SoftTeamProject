@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment } from 'react'
 
 
 export const AdminModProduct = () => {
@@ -12,23 +12,23 @@ export const AdminModProduct = () => {
                     {/* Columna izquierda */}
                     <div class="col-lg-3 well">
                         <div class="well">
-                            <p><a href="#">Perfil Administrador</a></p>
+                            <p><a href="http://localhost:3000">Perfil Administrador</a></p>
                             <img className='card-img-top mx-auto' src='/images/adminIcono.png' alt="Admin"></img>
                         </div>
 
                         <div class="well">
-                            <p><a href="#">Andres@gmail.com</a></p>
+                            <p><a href="http://localhost:3000">Andres@gmail.com</a></p>
                             <p>
                                 <span class="label label-default">Usuario</span>
                             </p>
                         </div>
 
                         <div class="alert alert-success fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                            <a href="http://localhost:3000" class="close" data-dismiss="alert" aria-label="close">×</a>
                             <p><strong>Ey!</strong></p>
                             People are looking at your profile. Find out who.
                         </div>
-                        <p><a href="#">Link</a></p>
+                        <p><a href="http://localhost:3000">Link</a></p>
                         
                     </div>
 
@@ -181,7 +181,6 @@ export const AdminModProduct = () => {
                 </div>
                 
             </div>
-            )
 
         </Fragment>
     )

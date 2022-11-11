@@ -1,18 +1,20 @@
-//Agregado por Santiago 8/11
-const nodemailer = require("nodemailer")
+const nodemailer= require("nodemailer")
 
 const sendEmail = async options =>{
     const transport = nodemailer.createTransport({
-        //Credenciales de Santiago, cambiar en caso de ser necesario.
-        host: "smtp.mailtrap.io",
+        //"smtp.office365.com"
+        host:  "smtp.mailtrap.io",
+        //587
         port: 2525,
         auth: {
-          user: "ab41ed4defb1d0",
-          pass: "4c3a8d7c605c1a"
+          //"tucorreomicrosoft"
+          user: "28296907788993",
+          pass: "900c123337c3b3"
         }
       });
-    const mensaje = {
-        from: "Soft team <noreply@SoftTeam.com>",
+    const mensaje={
+      //<tuCorreoMicrosoft>
+        from: "NegriShop Store <noreply@negrishop.com>",
         to: options.email,
         subject: options.subject,
         text: options.mensaje
@@ -21,4 +23,4 @@ const sendEmail = async options =>{
     await transport.sendMail(mensaje)
 }
 
-module.exports = sendEmail;
+module.exports= sendEmail;

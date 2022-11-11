@@ -1,9 +1,8 @@
-//Agregado por Santiago 8/11
-//Crear y enviar un token guarado en una cookie
+//Crear y enviar un token guardado en una cookie
 const tokenEnviado= (user, statusCode, res) =>{
 
     //Creamos el token
-    const token = user.getJwToken();
+    const token = user.getJwtToken();
 
     //Opciones del token
     const Opciones= {
@@ -19,5 +18,7 @@ const tokenEnviado= (user, statusCode, res) =>{
         user
     })
 }
+
+module.exports= tokenEnviado;
 
 module.exports= tokenEnviado;
