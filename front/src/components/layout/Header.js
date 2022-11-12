@@ -10,7 +10,7 @@ export const Header = () => {
             <nav class="navbar">
                 <div className='col-12 col-md-3'>
                     <div>
-                        <img src="./images/iconoLogo.png" alt="logo" width="120px"></img>
+                        <img src="../images/iconoLogo.png" alt="logo" width="120px"></img>
                     </div>
                 </div>
 
