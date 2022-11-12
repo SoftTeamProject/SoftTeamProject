@@ -33,16 +33,6 @@ export const Header = () => {
                             id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Panel de Control</span></Link>
                         <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
-<<<<<<< HEAD
-                            <Link className="dropdown-item" to="/">Modo Administrador</Link>
-                            <Link className="dropdown-item" to="/">Modo Cliente</Link>
-                            <Link className="dropdown-item" to="/">Mi cuenta</Link>
-                            <Link className="dropdown-item" to="/">Cerrar Sesion</Link>
-=======
-                            
-                            <Link className="dropdown-item" to="/Home">Login</Link>
-                            <Link className="dropdown-item" to="/Home">Cerrar Sesion</Link>
->>>>>>> 330d7b2e4b7a47cec97d9404319d97899f28de97
                         </div>
                     </div>
 
