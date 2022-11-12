@@ -28,6 +28,7 @@ function App() {
             <Route path="/Admin/ModProduct" element={<AdminModProduct/>}/>
             <Route path="/Cliente/ListaProductos" element={<ShoppingCart/>}/>
             <Route path="/Admin/Lista" element={<ProductList/>}/>
+            <Route path="/productoNuevo" element={<AdminModProduct/>}/>
             </Routes>
         </div>
         <Footer />

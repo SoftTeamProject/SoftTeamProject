@@ -6,9 +6,37 @@ import{
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
+    REGISTER_PRODUCT_REQUEST,
+    REGISTER_PRODUCT_SUCCESS,
+    REGISTER_PRODUCT_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/productConstants';
+
+//REGISTRAR PRODUCTO
+export const registrarProducto = (productData) => async (dispatch) => {
+    try {
+        dispatch({ type: REGISTER_PRODUCT_REQUEST })
+
+        const config={
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }
+        const {produ} = await axios.post('/api/productoNuevo',productData, config)
+
+        dispatch({
+            type: REGISTER_PRODUCT_SUCCESS,
+            payload: produ.product
+        })
+    }
+    catch (error) { 
+        dispatch({
+            type: REGISTER_PRODUCT_FAIL,
+            payload: error.response.produ.message
+        })
+    }
+}
 
 export const getProducts = () => async(dispatch)=>{
     try{
