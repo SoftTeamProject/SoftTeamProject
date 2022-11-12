@@ -1,7 +1,12 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
+import MetaData from '../layout/MetaData'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { registrarProducto, clearErrors } from '../../actions/productActions'
 
 
 export const AdminModProduct = () => {
+   
     return (
         <Fragment>
             
@@ -145,19 +150,7 @@ export const AdminModProduct = () => {
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="well">
-                                    <p>Jane</p>
-                                    <img className='card-img-top mx-auto' src='./images/play5.jpg' alt="Nutra gold"></img>
-                                </div>
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="well">
-                                    <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                         
                     </div>
                     {/* Columna Derecha */}

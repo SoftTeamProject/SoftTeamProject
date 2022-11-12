@@ -17,5 +17,6 @@ router.route('/producto/nuevo').post(isAuthenticatedUser, authorizeRoles("admin"
 router.route('/producto/:id').get(getProductById); //Ruta para consultar por id
 router.route('/producto/:id').put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct);//Creacion de la ruta de actualizacion
 router.route('/producto/:id').delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct); //Creacion de la ruta de eliminacion por id
+router.route('productoNuevo').post(newProduct); // ruta para registrar productoNuevo
 
 module.exports=router;

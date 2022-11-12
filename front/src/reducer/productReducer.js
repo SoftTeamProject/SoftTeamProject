@@ -5,8 +5,47 @@ import {
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
+    REGISTER_PRODUCT_REQUEST,
+    REGISTER_PRODUCT_SUCCESS,
+    REGISTER_PRODUCT_FAIL,
     CLEAR_ERRORS
 } from "../constants/productConstants";
+
+export const registerProductReducer=(state={product:{}},action)=>{
+    switch(action.type){
+
+        case REGISTER_PRODUCT_REQUEST:
+            return{
+                loading:true
+                
+            }
+        
+        case REGISTER_PRODUCT_SUCCESS:
+            return{
+                ...state,
+                loading:false,
+                product:action.payload
+            }
+
+        case REGISTER_PRODUCT_FAIL:
+            return{
+                ...state,
+                loading:false,
+                product:null,
+                error:action.payload
+            }
+            
+        case CLEAR_ERRORS:
+            return{
+                ...state,
+                error:null
+            }
+                
+        
+        default:
+            return state;
+    }
+}
 
 export const productsReducer = (state ={ products: []}, action)=>{
     switch(action.type){
