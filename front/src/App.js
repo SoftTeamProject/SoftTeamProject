@@ -11,6 +11,7 @@ import { AdminListaVentas } from './components/adminAll/AdminListaVentas';
 import { AdminModProduct } from './components/adminAll/AdminModProduct';
 import ShoppingCart from './components/clienteAll/ShoppingCart';
 import { ProductList } from './components/adminAll/ProductList';
+import { Login } from './components/user/Login';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
             <Route path="/Cliente/ListaProductos" element={<ShoppingCart/>}/>
             <Route path="/Admin/Lista" element={<ProductList/>}/>
             <Route path="/productoNuevo" element={<AdminModProduct/>}/>
+            <Route path="/search/:keyword" element={<Home />}/>
+            <Route path="/login" element={<Login />} />
             </Routes>
         </div>
         <Footer />
