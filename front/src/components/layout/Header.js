@@ -35,6 +35,7 @@ export const Header = () => {
                         <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
                             <Link className="dropdown-item" to="/">Modo Administrador</Link>
                             <Link className="dropdown-item" to="/">Modo Cliente</Link>
+                            <Link className="dropdown-item" to="/">Mi cuenta</Link>
                             <Link className="dropdown-item" to="/">Cerrar Sesion</Link>
                         </div>
                     </div>
