@@ -19,4 +19,8 @@ router.route('/producto/:id').put(isAuthenticatedUser, authorizeRoles("admin"), 
 router.route('/producto/:id').delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct); //Creacion de la ruta de eliminacion por id
 router.route('productoNuevo').post(newProduct); // ruta para registrar productoNuevo
 
+router.route("/review").put(isAuthenticatedUser, createProductReview)
+router.route("/reviews").get(isAuthenticatedUser, getProductReviews)
+router.route("/review").delete(isAuthenticatedUser, deleteReview)
+
 module.exports=router;
