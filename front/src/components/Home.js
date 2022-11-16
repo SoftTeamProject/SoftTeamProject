@@ -39,6 +39,7 @@ export const Home = () => {
 
             <section id="productos" className='container mt-5'>
                 <div className='row'>
+                    <br />
                     <Slider
                         range
                         className='t-slider'
