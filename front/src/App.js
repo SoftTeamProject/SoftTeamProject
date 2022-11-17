@@ -28,7 +28,7 @@ function App() {
             <Route path="/Admin/ListaVentas" element={<AdminListaVentas/>}/>
             <Route path="/Admin/ModProduct" element={<AdminModProduct/>}/>
             <Route path="/Cliente/ListaProductos" element={<ShoppingCart/>}/>
-            <Route path="/Admin/Lista" element={<ProductList/>}/>
+            <Route path="/admin/productos" element={<ProductList/>}/>
             <Route path="/productoNuevo" element={<AdminModProduct/>}/>
             <Route path="/search/:keyword" element={<Home />}/>
             <Route path="/login" element={<Login />} />

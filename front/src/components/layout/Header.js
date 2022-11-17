@@ -53,7 +53,7 @@ export const Header = () => {
                             <span>Modo Administrador<p><span class="glyphicon glyphicon-folder-open"></span></p></span></Link>
                         <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
                             <Link className="dropdown-item" to="/Home">Home</Link>
-                            <Link className="dropdown-item" to="/Admin/Lista">Lista de Productos</Link>
+                            <Link className="dropdown-item" to="/admin/productos">Lista de Productos</Link>
                             <Link className="dropdown-item" to="/productoNuevo">Registrar Producto</Link>
                         </div>
                     </div>

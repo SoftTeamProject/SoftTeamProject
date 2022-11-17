@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../actions/productActions'
+import { getAdminProducts } from '../../actions/productActions'
 //import { useAlert } from 'react-alert'
 import MetaData from '../layout/MetaData'
 import { MDBDataTable } from "mdbreact"
@@ -8,16 +8,18 @@ import "./cssAdmin.css";
 
 export const ProductList = () => {
 
-    const { loading, productos } = useSelector(state => state.products)
     //const alert = useAlert();
-
     const dispatch = useDispatch();
+
+    const { loading, products } = useSelector(state => state.products)
+
+
     useEffect(() => {
+        dispatch(getAdminProducts());
         /*if (error) {
                 return alert.error(error)
             }
         */
-        dispatch(getProducts());
     }, [dispatch])
 
     //FUNCION QUE TRAE UNA SUBLISTA DE LA BASE DE DATOS
@@ -53,8 +55,8 @@ export const ProductList = () => {
             ],
             rows: []
         }
-        if (productos) {
-            productos.forEach(product => {
+        if (products) {
+            products.forEach(product => {
                 data.rows.push({
                     id: product._id,
                     nombre: product.nombre,

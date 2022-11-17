@@ -8,7 +8,10 @@ import {
     REGISTER_PRODUCT_REQUEST,
     REGISTER_PRODUCT_SUCCESS,
     REGISTER_PRODUCT_FAIL,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    ADMIN_PRODUCTS_REQUEST,
+    ADMIN_PRODUCTS_SUCCESS,
+    ADMIN_PRODUCTS_FAIL
 } from "../constants/productConstants";
 
 export const registerProductReducer=(state={product:{}},action)=>{
@@ -49,7 +52,9 @@ export const registerProductReducer=(state={product:{}},action)=>{
 
 export const productsReducer = (state = { products: [] }, action) => {
     switch (action.type) {
+
         case ALL_PRODUCTS_REQUEST:
+        case ADMIN_PRODUCTS_REQUEST:
             return {
                 loading: true,
                 products: []
@@ -64,7 +69,14 @@ export const productsReducer = (state = { products: [] }, action) => {
                 filteredProductsCount: action.payload.filteredProductsCount
             }
 
+        case ADMIN_PRODUCTS_SUCCESS:
+            return{
+                loading:false,
+                products:action.payload
+            }
+
         case ALL_PRODUCTS_FAIL:
+        case ADMIN_PRODUCTS_FAIL:
             return {
                 loading: false,
                 error: action.payload
