@@ -22,6 +22,7 @@ import { UpdatePassword } from './components/user/UpdatePassword';
 import { ForgotPassword } from "./components/user/ForgotPassword"
 import { NewPassword } from './components/user/NewPassword';
 import NewProduct from './components/adminAll/NewProduct';
+import { UpdateProduct } from './components/adminAll/UpdateProduct';
 
 
 function App() {
@@ -65,6 +66,10 @@ function App() {
             {/*Rutas protegida*/}
             <Route path="/Admin/ListaProductos"
               element={<ProtectedRoute isAdmin={true}><AdminListProduct /></ProtectedRoute>} />
+
+            <Route path="/updateProduct/:id"
+              element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
 
             <Route path="/Admin/ListaVentas"
               element={<ProtectedRoute isAdmin={true}><AdminListaVentas /></ProtectedRoute>} />
