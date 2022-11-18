@@ -78,11 +78,11 @@ exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{
     await user.save({validateBeforeSave: false})
 
     //Crear una url para hacer el reset de la contraseña
-    const resetUrl= `${req.protocol}://${req.get("host")}/api/resetPassword/${resetToken}`;
+    const resetUrl= `${req.protocol}://${req.get("host")}/resetPassword/${resetToken}`;
 
     const mensaje=`Hola!\n\nTu link para ajustar una nueva contraseña es el 
     siguiente: \n\n${resetUrl}\n\n
-    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\nNegriShop Store`
+    Si no solicitaste este link, por favor comunicate con soporte.\n\n Att:\nChronoz Technologies Store`
 
     try{
         await sendEmail({
@@ -166,7 +166,24 @@ exports.updateProfile= catchAsyncErrors(async(req,res,next)=>{
         email: req.body.email
     }
 
-    //updata Avatar: pendiente
+    //updata Avatar: 
+    if (req.body.avatar !==""){
+        const user= await User.findById(req.user.id)
+        const image_id= user.avatar.public_id;
+        const res= await cloudinary.v2.uploader.destroy(image_id);
+
+        const result= await cloudinary.v2.uploader.upload(req.body.avatar, {
+            folder: "avatars",
+            width: 240,
+            crop: "scale"
+        })
+
+        newUserData.avatar={
+            public_id: result.public_id,
+            url: result.secure_url
+        }
+    }
+
     const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new:true,
         runValidators:true,

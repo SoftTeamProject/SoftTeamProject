@@ -5,7 +5,6 @@ import { login, clearErrors } from "../../actions/userActions"
 import { useDispatch, useSelector } from 'react-redux'
 
 export const Login = () => {
-
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -39,10 +38,10 @@ export const Login = () => {
                                 <div className='form-group'>
                                     <label htmlFor='email_field'>Correo electrónico</label>
                                     <input type="email"
-                                    id="email_field"
-                                    className='form-control'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}></input>
+                                        id="email_field"
+                                        className='form-control'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}></input>
                                 </div>
                                 {/*Campo para contraseña*/}
                                 <div className='form-group'>
