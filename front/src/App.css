@@ -303,7 +303,6 @@ footer {
 
 .stockCounter input::-webkit-outer-spin-button,
 .stockCounter input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
 }
 
