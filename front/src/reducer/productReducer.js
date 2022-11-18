@@ -5,39 +5,45 @@ import {
     PRODUCT_DETAILS_REQUEST,
     PRODUCT_DETAILS_SUCCESS,
     PRODUCT_DETAILS_FAIL,
-    REGISTER_PRODUCT_REQUEST,
-    REGISTER_PRODUCT_SUCCESS,
-    REGISTER_PRODUCT_FAIL,
     CLEAR_ERRORS,
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
-    ADMIN_PRODUCTS_FAIL
+    ADMIN_PRODUCTS_FAIL,
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL,
+    NEW_PRODUCT_RESET
 } from "../constants/productConstants";
 
-export const registerProductReducer=(state={product:{}},action)=>{
+//REDUCER PARA CREAR NUEVOS PRODUCTOS
+export const newProductReducer=(state={product:{}},action)=>{
     switch(action.type){
 
-        case REGISTER_PRODUCT_REQUEST:
+        case NEW_PRODUCT_REQUEST:
             return{
+                ...state,
                 loading:true
                 
             }
         
-        case REGISTER_PRODUCT_SUCCESS:
+        case NEW_PRODUCT_SUCCESS:
             return{
-                ...state,
                 loading:false,
-                product:action.payload
+                success:action.payload.success,
+                product:action.payload.product
             }
 
-        case REGISTER_PRODUCT_FAIL:
+        case NEW_PRODUCT_FAIL:
             return{
                 ...state,
-                loading:false,
-                product:null,
                 error:action.payload
             }
-            
+        case NEW_PRODUCT_RESET:
+            return{
+                ...state,
+                success:false
+            }
+
         case CLEAR_ERRORS:
             return{
                 ...state,

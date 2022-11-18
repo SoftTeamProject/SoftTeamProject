@@ -12,30 +12,33 @@ import{
     CLEAR_ERRORS,
     ADMIN_PRODUCTS_REQUEST,
     ADMIN_PRODUCTS_SUCCESS,
-    ADMIN_PRODUCTS_FAIL
+    ADMIN_PRODUCTS_FAIL,
+    NEW_PRODUCT_REQUEST,
+    NEW_PRODUCT_SUCCESS,
+    NEW_PRODUCT_FAIL
 } from '../constants/productConstants';
 
-//REGISTRAR PRODUCTO
-export const registrarProducto = (productData) => async (dispatch) => {
+//REGISTRAR PRODUCTO NUEVO ADMIN
+export const newProduct = (productData) => async (dispatch) => {
     try {
-        dispatch({ type: REGISTER_PRODUCT_REQUEST })
+        dispatch({ type: NEW_PRODUCT_REQUEST })
 
         const config={
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type':'application/json'
             }
         }
-        const {produ} = await axios.post('/api/productoNuevo',productData, config)
+        const {data} = await axios.post('/api/producto/nuevo',productData, config)
 
         dispatch({
-            type: REGISTER_PRODUCT_SUCCESS,
-            payload: produ.product
+            type: NEW_PRODUCT_SUCCESS,
+            payload: data
         })
     }
     catch (error) { 
         dispatch({
-            type: REGISTER_PRODUCT_FAIL,
-            payload: error.response.produ.message
+            type: NEW_PRODUCT_FAIL,
+            payload: error.response.data.message
         })
     }
 }
