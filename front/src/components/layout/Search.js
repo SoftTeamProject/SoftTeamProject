@@ -18,23 +18,23 @@ export const Search = () => {
     console.log(keyword)
 
     return (
-    <form onSubmit={searchHandler}>
-    <div className="input-group">
-    <input
-        type="text"
-        id="search_field"
-        class="form-control"
-        placeholder='Que producto busca?...'
-        onChange={(e) => setKeyword(e.target.value)}
-        />
-        
-    <div class="input-group-append">
-        <button id="search_btn" class="btn">
-        <i class="fa fa-search-plus fa-2x text-white" aria-hidden="true"></i>
-        </button>
+        <form onSubmit={searchHandler}>
+        <div className="input-group">
+        <input
+            type="text"
+            id="search_field"
+            class="form-control"
+            placeholder='Que producto busca?...'
+            onChange={(e) => setKeyword(e.target.value)}
+            />
+            
+        <div class="input-group-append">
+            <button id="search_btn" class="btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
-</div>
-</form >
+    </form >
   );
 };
 

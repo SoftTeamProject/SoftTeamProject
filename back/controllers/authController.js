@@ -4,21 +4,27 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const tokenEnviado = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail")
 const crypto = require("crypto")
+const cloudinary= require("cloudinary")
 
 //Registrar un nuevo usuario /api/usuario/registro
-exports.registroUsuario = catchAsyncErrors(async (req, res, next) =>{
+exports.registroUsuario= catchAsyncErrors(async (req, res, next) =>{
     const {nombre, email, password} = req.body;
+
+    const result= await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder:"avatars",
+        width:240,
+        crop:"scale"
+    })
 
     const user = await User.create({
         nombre,
         email,
         password,
         avatar:{
-            public_id:"ANd9GcQKZwmqodcPdQUDRt6E5cPERZDWaqy6ITohlQ&usqp",
-            url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKZwmqodcPdQUDRt6E5cPERZDWaqy6ITohlQ&usqp=CAU"
+            public_id:result.public_id,
+            url:result.secure_url
         }
     })
-
     tokenEnviado(user,201,res)
 })
 
@@ -81,7 +87,7 @@ exports.forgotPassword = catchAsyncErrors ( async( req, res, next) =>{
     try{
         await sendEmail({
             email:user.email,
-            subject: "NegriShop Recuperación de la contraseña",
+            subject: "Chronoz Technologies Recuperación de la contraseña",
             mensaje
         })
         res.status(200).json({

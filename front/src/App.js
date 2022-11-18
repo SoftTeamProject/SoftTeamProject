@@ -12,7 +12,7 @@ import { AdminModProduct } from './components/adminAll/AdminModProduct';
 import ShoppingCart from './components/clienteAll/ShoppingCart';
 import { ProductList } from './components/adminAll/ProductList';
 import { Login } from './components/user/Login';
-
+import { Register } from './components/user/Register';
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
             <Route path="/productoNuevo" element={<AdminModProduct/>}/>
             <Route path="/search/:keyword" element={<Home />}/>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             </Routes>
         </div>
         <Footer />
