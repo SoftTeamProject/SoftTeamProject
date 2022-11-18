@@ -90,7 +90,7 @@ export const Header = () => {
                             <Link className="dropdown-item" to="/admin/productos">Lista de Productos</Link>
                         )}
                         {user && user.role === "admin" && (
-                            <Link className="dropdown-item" to="/productoNuevo">Registrar Producto</Link>
+                            <Link className="dropdown-item" to="/producto/nuevo">Registrar Producto</Link>
                         )}
                     </div>
                 </div>
