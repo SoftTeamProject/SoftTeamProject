@@ -14,7 +14,7 @@ const sendEmail = async options =>{
       });
     const mensaje={
       //<tuCorreoMicrosoft>
-        from: "NegriShop Store <noreply@negrishop.com>",
+        from: "Chronoz Technologies Store <noreply@negrishop.com>",
         to: options.email,
         subject: options.subject,
         text: options.mensaje

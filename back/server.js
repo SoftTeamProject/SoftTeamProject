@@ -1,6 +1,6 @@
 const app = require("./app")
 const connectDatabase = require("./config/database");
-const cloudinary=require("cloudinary")
+const cloudinary= require("cloudinary")
 
 //Setear el archivo de configuración
 const dotenv=require("dotenv");

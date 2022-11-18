@@ -2,13 +2,13 @@ const express=require("express");
 const app = express();
 const errorMiddleware= require("./middleware/errors")
 const cookieParser= require("cookie-parser")
-const bodyParser=require("body-parser")
-const fileUpload=require("express-fileupload")
+const bodyParser = require('body-parser')
+const fileUpload = require('express-fileupload')
 
 //Uso de constantes importadas
 //La aplicacion usa herramientas de express respecto a json
 app.use(express.json());
-app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(fileUpload());
 
