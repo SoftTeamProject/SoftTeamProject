@@ -3,7 +3,7 @@ const producto = require("../models/productos");
 const APIFeatures = require("../utils/apiFeatures");
 const ErrorHandler = require("../utils/errorHandler");
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url)); //Usurpación del require
-const cloudinary=require("cloudinary")
+const cloudinary = require("cloudinary")
 
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
@@ -16,7 +16,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         .filter();
 
     let products = await apiFeatures.query;
-    let filteredProductsCount= products.length;
+    let filteredProductsCount = products.length;
     apiFeatures.pagination(resPerPage);
     products = await apiFeatures.query.clone();
 
@@ -51,30 +51,30 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     if (!product) {
         return next(new ErrorHandler("Producto no encontrado", 404))
     }
-    let imagen=[]
+    let imagen = []
 
-    if (typeof req.body.imagen=="string"){
+    if (typeof req.body.imagen == "string") {
         imagen.push(req.body.imagen)
-    }else{
-        imagen=req.body.imagen
+    } else {
+        imagen = req.body.imagen
     }
-    if (imagen!== undefined){
+    if (imagen !== undefined) {
         //eliminar imagenes asociadas con el product
-        for (let i=0; i<product.imagen.lenght; i++){
-            const result= await cloudinary.v2.uploader.destroy(product.images[i].public_id)
+        for (let i = 0; i < product.imagen.lenght; i++) {
+            const result = await cloudinary.v2.uploader.destroy(product.images[i].public_id)
         }
 
-        let imageLinks=[]
-        for (let i=0; i<imagen.lenght; i++){
-            const result=await cloudinary.v2.uploader.upload(imagen[i],{
-                folder:"products"
+        let imageLinks = []
+        for (let i = 0; i < imagen.lenght; i++) {
+            const result = await cloudinary.v2.uploader.upload(imagen[i], {
+                folder: "products"
             });
             imageLinks.push({
-                public_id:result.public_id,
+                public_id: result.public_id,
                 url: result.secure_url
             })
         }
-        req.body.imagen=imageLinks
+        req.body.imagen = imageLinks
     }
 
     //Si el objeto si existia, entonces si ejecuto la actualización
@@ -108,26 +108,26 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 //Crear nuevo producto /api/productos
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
-    let imagen=[]
-    if(typeof req.body.imagen==="string"){
+    let imagen = []
+    if (typeof req.body.imagen === "string") {
         imagen.push(req.body.imagen)
-    }else{
-        imagen=req.body.imagen
+    } else {
+        imagen = req.body.imagen
     }
 
-    let imagenLink=[] //link de las imagenes en cloudinary
+    let imagenLink = [] //link de las imagenes en cloudinary
 
-    for (let i=0; i<imagen.length;i++){
-        const result = await cloudinary.v2.uploader.upload(imagen[i],{
-            folder:"products"
+    for (let i = 0; i < imagen.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(imagen[i], {
+            folder: "products"
         })
         imagenLink.push({
-            public_id:result.public_id,
+            public_id: result.public_id,
             url: result.secure_url
         })
     }
 
-    req.body.imagen=imagenLink
+    req.body.imagen = imagenLink
 
     req.body.user = req.user.id;
     const product = await producto.create(req.body);
@@ -173,7 +173,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
         success: true,
         message: "Hemos opinado correctamente"
     })
-    
+
 })
 
 //Ver todas las review de un producto
@@ -235,11 +235,11 @@ function verProductos() {
 }
 
 //Ver por id
-function verProductoPorID(id){
-    fetch('http://localhost:4000/api/producto/'+id)
-    .then(res=>res.json())
-    .then(res=>console.log(res))
-    .catch(err=>console.error(err))
+function verProductoPorID(id) {
+    fetch('http://localhost:4000/api/producto/' + id)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.error(err))
 }
 
 //verProductos();

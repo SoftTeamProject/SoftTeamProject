@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 import { logout } from "../../actions/userActions"
 
-export const Header = () => {
-
+const Header = () => {
     const {cartItems} = useSelector(state=>state.cart)
-    const alert = useAlert();
-    const dispatch = useDispatch();
+    
+    const alert= useAlert();
+    const dispatch= useDispatch();
 
     const { user, loading } = useSelector(state => state.auth)
 
-    const logoutHandler = () => {
+    const logoutHandler = () =>{
         dispatch(logout());
         alert.success("LogOut exitoso")
     }
@@ -34,7 +34,7 @@ export const Header = () => {
                 </div>
                 {/*Boton inicio sesión*/}
                 <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
-                    <Link to="/Cliente/ListaProductos"><i class="fa fa-cart-arrow-down fa-2x text-white" aria-hidden="false"></i>
+                    <Link to="/carrito"><i class="fa fa-cart-arrow-down fa-2x text-white" aria-hidden="false"></i>
                         <span className="ml-1" id="cart_count">{cartItems.length}</span></Link>
 
                          
@@ -57,7 +57,7 @@ export const Header = () => {
                                     <Link className="dropdown-item" to="/adminAll">Perfil Administrador</Link>
                                 )}
 
-                                <Link className="dropdown-item" to="/myOrders">Pedidos</Link>
+                                <Link className="dropdown-item" to="/myOrders">Mis Pedidos</Link>
                                 <Link className="dropdown-item" to="/yo">Mi Perfil</Link>
                                 <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
                             </div>
@@ -103,7 +103,7 @@ export const Header = () => {
                         <span>Modo Cliente<p><span class="glyphicon glyphicon-user"></span></p></span></Link>
                     <div className='dropdown-menu' aria-labelledby='dropDownMenu'>
                         <Link className="dropdown-item" to="/">Home</Link>
-                        <Link className="dropdown-item" to="/Cliente/ListaProductos">Carrito de Compras</Link>
+                        <Link className="dropdown-item" to="/carrito">Carrito de Compras</Link>
                         <Link className="dropdown-item" to="/" onClick={logoutHandler}>Cerrar Sesion</Link>
                     </div>
                 </div>
