@@ -43,8 +43,7 @@ const Cart = () => {
 
             {cartItems.length === 0 ? <h2 className="mt-5">Su carrito esta vacio</h2> : (
                 <Fragment>
-
-                    <h2 className="mt-5">Su Carrito: <b>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} items</b></h2>
+                    <h2 style={{ backgroundColor: "#232F3E", color: "white", padding: "1rem", overflow: "visible" }}> Lista de Productos Seleccionados : <b>{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0)} items</b> </h2>
 
                     <div className="row d-flex justify-content-between">
                         <div className="col-12 col-lg-8">
