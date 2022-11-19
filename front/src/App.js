@@ -30,11 +30,13 @@ import { Success } from './components/cart/Success'
 import { ListOrder } from './components/order/ListOrder';
 import { OrderDetails } from './components/order/OrderDetails';
 import UsersList from './components/adminAll/UserList';
+import { useSelector } from 'react-redux';
 
 function App() {
   useEffect(() => {
     store.dispatch(loadUser())
   }, [])
+  const {user, isAuthenticated, loading} = useSelector(state => state.auth)
 
   return (
     <Router>
@@ -113,7 +115,9 @@ function App() {
 
           </Routes>
         </div>
+        {!loading && (!isAuthenticated || user.role!=="admin") &&(
         <Footer />
+       )}
       </div>
     </Router>
   );
