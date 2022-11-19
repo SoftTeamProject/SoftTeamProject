@@ -214,8 +214,6 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
 })
 
-
-
 //Ver la lista de productos Admin
 exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 
@@ -226,7 +224,6 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
     })
 
 })
-
 
 //HABLEMOS DE FETCH
 //Ver todos los productos

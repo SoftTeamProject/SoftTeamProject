@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Rou
 import { AdminListProduct } from './components/adminAll/AdminListProduct'
 import { AdminListaVentas } from './components/adminAll/AdminListaVentas';
 import { AdminModProduct } from './components/adminAll/AdminModProduct';
-import ShoppingCart from './components/clienteAll/ShoppingCart';
+import Cart from './components/cart/Cart';// Importacion que cambia de ShoppingCart.js a Cart.js
 import { ProductList } from './components/adminAll/ProductList';
 import { Login } from './components/user/Login';
 import { Register } from './components/user/Register';
@@ -39,7 +39,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/producto/:id" element={<ProductDetails />} />
-            <Route path="/Cliente/ListaProductos" element={<ShoppingCart />} />
+            <Route path="/Cliente/ListaProductos" element={<Cart />} /> {/*cambio ShoppingCart.js por cart.js*/}
             <Route path="/admin/productos" element={<ProductList />} />
             <Route path="/productoNuevo" element={<AdminModProduct />} />
             <Route path="/search/:keyword" element={<Home />} />
@@ -49,7 +49,6 @@ function App() {
             <Route path="/Admin/ListaProductos" element={<AdminListProduct/>}/>
             <Route path="/Admin/ListaVentas" element={<AdminListaVentas/>}/>
             <Route path="/Admin/ModProduct" element={<AdminModProduct/>}/>
-            <Route path="/Cliente/ListaProductos" element={<ShoppingCart/>}/>
             <Route path="/admin/productos" element={<ProductList/>}/>
             <Route path="/productoNuevo" element={<AdminModProduct/>}/>
             <Route path="/producto/nuevo" element={<NewProduct/>}/>
