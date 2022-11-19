@@ -29,6 +29,7 @@ import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success'
 import { ListOrder } from './components/order/ListOrder';
 import { OrderDetails } from './components/order/OrderDetails';
+import UsersList from './components/adminAll/UserList';
 
 function App() {
   useEffect(() => {
@@ -73,6 +74,9 @@ function App() {
 
             <Route path="/updateProduct/:id"
               element={<ProtectedRoute isAdmin={true}><UpdateProduct /></ProtectedRoute>} />
+
+            <Route path="/admin/users"
+              element={<ProtectedRoute isAdmin={true}><UsersList /></ProtectedRoute>} />
 
             <Route path="/Admin/ListaVentas"
               element={<ProtectedRoute isAdmin={true}><AdminListaVentas /></ProtectedRoute>} />

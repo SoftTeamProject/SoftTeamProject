@@ -94,6 +94,9 @@ const Header = () => {
                         {user && user.role === "admin" && (
                             <Link className="dropdown-item" to="/producto/nuevo">Registrar Producto</Link>
                         )}
+                        {user && user.role === "admin" && (
+                            <Link className="dropdown-item" to="/admin/users">Lista de Usuarios</Link>
+                        )}
                     </div>
                 </div>
 
